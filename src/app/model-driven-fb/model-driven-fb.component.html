@@ -1,0 +1,28 @@
+<p></p>
+  <h4>Model Driven Form ( using formbuilder)</h4>
+
+<form [formGroup]="myGroup" (ngSubmit)="onSubmit(myGroup.value)">
+    <div formGroupName="personalData">
+        <label> Name:
+        <input type="text" formControlName="firstName">
+         </label>
+        <p></p>
+        <label>Email: 
+        <input type="email" formControlName="email" [email]="true">
+        </label>
+    </div>
+
+    <p></p>
+    
+    <div formGroupName="address">
+    <label>
+    	Street:
+		<input type="text" formControlName="street">
+    </label><p></p>
+    <label>
+    	Pincode:
+		<input type="text" formControlName="pincode">
+    </label>
+    </div><p>
+     <button type="submit" [disabled]="!myGroup.valid">Submit Model</button>
+</form>	

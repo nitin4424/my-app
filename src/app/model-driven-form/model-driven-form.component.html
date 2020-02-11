@@ -1,0 +1,33 @@
+<label>
+  Name:
+  <input type="text" [formControl]="name">
+</label>
+<p>
+  Value: {{ name.value }}
+</p>
+<p>
+  <button (click)="updateName()">Update Name</button>
+</p>
+ 
+  <h4>Model Driven Form (using FormGroup and FormControl)</h4>
+<form [formGroup]="myGroup" (ngSubmit)="onSubmit(myGroup.value)">
+    <label>
+    	Name:
+    	<input type="text" formControlName="firstName">
+    </label>
+    <p></p>
+    <div formGroupName="address">
+    <label>
+    	Street:
+		<input type="text" formControlName="street">
+    </label>
+    <p></p>
+    <label>
+    	Pincode:
+		<input type="text" formControlName="pincode">
+    </label>
+    </div>
+    <p></p>
+     <button type="submit" [disabled]="!myGroup.valid">Submit</button>
+</form>	
+
